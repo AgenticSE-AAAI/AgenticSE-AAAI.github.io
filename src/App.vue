@@ -43,7 +43,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid px-4">
       <a class="navbar-brand" href="#" @click.prevent="scrollTo('home')">
-        Agentic SE @ AAAI'27
+        Agentic SE @ AAAI-27
       </a>
       <button
         class="navbar-toggler border-0"
@@ -79,7 +79,6 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
           <h1 class="hero-title">
             Agentic Software Engineering
           </h1>
-          <p class="hero-subtitle">The Frontier of Agentic Systems</p>
           <div class="hero-meta d-flex flex-wrap gap-4 mb-4">
             <div><i class="bi bi-calendar-event"></i> February 22 or 23, 2027</div>
             <div><i class="bi bi-geo-alt"></i> Montréal, Canada</div>
