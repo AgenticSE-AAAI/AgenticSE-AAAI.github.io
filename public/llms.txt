@@ -1,0 +1,19 @@
+# AAAI-27 Workshop on Agentic Software Engineering
+
+> A one-day workshop connecting artificial intelligence (AI), software engineering (SE), programming languages and formal methods (PL/FM), and research software engineering.
+
+- Website: https://agenticse-aaai.github.io/
+- Location: Montréal, Canada
+- Workshop day: February 22 or 23, 2027; exact day to be announced
+- Paper submission deadline: November 20, 2026, 11:59 PM Anywhere on Earth (AoE)
+- Author notification: December 2, 2026
+- Full papers: up to 8 pages excluding references
+- Short papers: up to 4 pages excluding references
+- Review: double-blind; AAAI-27 template; non-archival
+- Author kit: AAAI-2027 Author Kit — https://aaai.org/authorkit27/
+- Submission portal: OpenReview link to be announced
+- Contact: Hao Li, hao.li@queensu.ca
+
+## Organizers
+
+Hao Li (Queen's University), Tse-Hsun (Peter) Chen (Concordia University), Shraddha Barke (Microsoft Research), Vani Mandava (University of Washington), Ahmed E. Hassan (Queen's University).

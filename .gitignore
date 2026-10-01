@@ -1,0 +1,13 @@
+.DS_Store
+node_modules/
+dist/
+*.log
+.env
+.env.*
+!.env.example
+
+# Local, read-only proposal reference; never commit or deploy this symlink.
+/aaai_proposal
+
+# Original design reference; read-only local symlink.
+/AgenticSE-CAIS.github.io
