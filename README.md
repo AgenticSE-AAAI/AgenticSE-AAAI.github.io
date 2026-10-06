@@ -39,7 +39,6 @@ Tentative speaker invitees are not presented as confirmed speakers.
 ## Remaining announcements
 
 - Confirm the exact workshop day (February 22 or 23, 2027), room, and schedule.
-- Add the OpenReview submission URL.
 - Add confirmed speakers, program committee, and accepted papers when available.
 
 ## GitHub Pages

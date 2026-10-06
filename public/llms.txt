@@ -1,6 +1,6 @@
 # AAAI-27 Workshop on Agentic Software Engineering
 
-> A one-day workshop connecting artificial intelligence (AI), software engineering (SE), programming languages and formal methods (PL/FM), and research software engineering.
+> A one-day workshop connecting artificial intelligence, software engineering, programming languages and formal methods, and research software engineering.
 
 - Website: https://agenticse-aaai.github.io/
 - Location: Montréal, Canada
@@ -11,7 +11,7 @@
 - Short papers: up to 4 pages excluding references
 - Review: double-blind; AAAI-27 template; non-archival
 - Author kit: AAAI-2027 Author Kit — https://aaai.org/authorkit27/
-- Submission portal: OpenReview link to be announced
+- Submission portal: https://openreview.net/group?id=AAAI.org/2027/Workshop/AgenticSE
 - Contact: Hao Li, hao.li@queensu.ca
 
 ## Organizers

@@ -87,7 +87,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
           </div>
           <p class="mt-4" style="max-width: 800px; font-size: 1.15rem; line-height: 1.7;">
             Co-located with <a href="https://aaai.org/conference/aaai/aaai-27/" target="_blank" rel="noopener noreferrer"><strong>AAAI-27</strong></a>.
-            Bridging artificial intelligence (AI), software engineering (SE), programming languages and formal methods (PL/FM), and research software engineering.
+            Bridging artificial intelligence, software engineering, programming languages and formal methods, and research software engineering.
           </p>
           <a href="#submission" @click.prevent="scrollTo('submission')" class="btn-register">
             Call for Papers <i class="bi bi-arrow-right ms-2"></i>
@@ -201,7 +201,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
         <div class="col-lg-8">
           <hr class="section-divider d-lg-none">
           <p class="mb-5" style="font-size: 1.1rem; line-height: 1.8;">
-            We welcome original research, position and vision papers, reports, and preliminary results that spark discussion across artificial intelligence (AI), software engineering (SE), programming languages and formal methods (PL/FM), and research software engineering. The workshop covers the full agentic software lifecycle, from capturing requirements and intent to verification, testing, and maintaining production and scientific software.
+            We welcome original research, position and vision papers, reports, and preliminary results that spark discussion across artificial intelligence, software engineering, programming languages and formal methods, and research software engineering. The workshop covers the full agentic software lifecycle, from capturing requirements and intent to verification, testing, and maintaining production and scientific software.
           </p>
 
           <h4 class="fw-bold mb-4 text-uppercase" style="letter-spacing: 0.05em;">Topics of Interest</h4>
@@ -220,9 +220,11 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
             <li><strong>Proceedings:</strong> The workshop is non-archival. Accepted papers will be listed on this website.</li>
             <!-- <li><strong>Presentation:</strong> Each accepted paper receives a lightning talk and a poster. At least one author must register and present in person.</li> -->
           </ul>
-          <p class="text-muted mt-4" style="font-size: 1.1rem; line-height: 1.8;">
-            <strong>Submission portal:</strong> The OpenReview link will be announced.
-          </p>
+          <div class="mt-4">
+            <a href="https://openreview.net/group?id=AAAI.org/2027/Workshop/AgenticSE" target="_blank" rel="noopener noreferrer" class="btn-register">
+              Submit Paper (OpenReview) <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
