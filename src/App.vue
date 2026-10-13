@@ -89,8 +89,8 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
             Co-located with <a href="https://aaai.org/conference/aaai/aaai-27/" target="_blank" rel="noopener noreferrer"><strong>AAAI-27</strong></a>.
             Bridging artificial intelligence, software engineering, programming languages and formal methods, and research software engineering.
           </p>
-          <a href="#submission" @click.prevent="scrollTo('submission')" class="btn-register">
-            Call for Papers <i class="bi bi-arrow-right ms-2"></i>
+          <a href="https://openreview.net/group?id=AAAI.org/2027/Workshop/AgenticSE" target="_blank" rel="noopener noreferrer" class="btn-register">
+            Submit Paper (OpenReview) <i class="bi bi-arrow-right ms-2"></i>
           </a>
         </div>
       </div>
