@@ -200,8 +200,11 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
         </div>
         <div class="col-lg-8">
           <hr class="section-divider d-lg-none">
+          <p class="mb-4" style="font-size: 1.1rem; line-height: 1.8;">
+            Software has emerged as the primary proving ground for agentic AI. Agentic coding systems such as Claude Code and OpenAI Codex are among the first truly autonomous agents deployed in complex, real-world environments. However, writing code is merely the entry point. Agents must also capture requirements and intent, reason over specifications and formal artifacts, validate and verify their outputs, and build, test, and maintain production and scientific software.
+          </p>
           <p class="mb-5" style="font-size: 1.1rem; line-height: 1.8;">
-            We welcome original research, position and vision papers, reports, and preliminary results that spark discussion across artificial intelligence, software engineering, programming languages and formal methods, and research software engineering. The workshop covers the full agentic software lifecycle, from capturing requirements and intent to verification, testing, and maintaining production and scientific software.
+            The <strong>AAAI-27 Workshop on Agentic Software Engineering</strong> bridges the AI community with the software engineering, programming languages and formal methods, and research software engineering communities. We welcome original research, position and vision papers, reports, and preliminary results on the topics below.
           </p>
 
           <h4 class="fw-bold mb-4 text-uppercase" style="letter-spacing: 0.05em;">Topics of Interest</h4>
@@ -216,8 +219,9 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
             <li><strong>Full papers:</strong> Up to 8 pages (excluding references) for original research contributions.</li>
             <li><strong>Short papers:</strong> Up to 4 pages (excluding references) for position and vision papers, reports, and preliminary results.</li>
             <li><strong>Format:</strong> Please use the template in the <a href="https://aaai.org/authorkit27/">AAAI-2027 Author Kit</a>.</li>
-            <li><strong>Review:</strong> All submissions undergo double-blind peer review. Please anonymize your submission.</li>
-            <li><strong>Proceedings:</strong> The workshop is non-archival. Accepted papers will be listed on this website.</li>
+            <li><strong>Review:</strong> All submissions are double-blind. Please anonymize your submission.</li>
+            <li><strong>Proceedings:</strong> The workshop is non-archival, with no formal proceedings. Accepted papers will be listed on this website.</li>
+            <li><strong>Registration:</strong> At least one author of each accepted paper must register for the AAAI-27 workshop.</li>
             <!-- <li><strong>Presentation:</strong> Each accepted paper receives a lightning talk and a poster. At least one author must register and present in person.</li> -->
           </ul>
           <div class="mt-4">
