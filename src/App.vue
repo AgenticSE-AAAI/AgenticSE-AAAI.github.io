@@ -259,6 +259,27 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
     </div>
   </section>
 
+  <!-- Reviewer Self-Nomination -->
+  <section id="reviewer" class="section section-alt" aria-labelledby="reviewer-title">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <h2 id="reviewer-title" class="section-title">Call for Reviewers</h2>
+        </div>
+        <div class="col-lg-8">
+          <hr class="section-divider d-lg-none">
+          <p class="reviewer-intro mb-0">
+            We are looking for qualified reviewers with expertise in AI agents, software engineering, and related areas. If you are interested in serving as a reviewer for the <strong>AgenticSE @ AAAI-27</strong> workshop, please fill out the self-nomination form below.
+          </p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScoT6DMc6PO_T8BAdAx5aidZU4u7WcUF56XmCY2I4zYLLZdSw/viewform" target="_blank" rel="noopener noreferrer" class="btn-register reviewer-cta">
+            <span>Self-Nominate as Reviewer</span>
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Organizers -->
   <section id="organizers" class="section section-alt">
     <div class="container">
