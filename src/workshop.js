@@ -6,7 +6,7 @@ export const topics = [
   { title: 'Software Safety and Integrity', description: 'Supply chain security, prevention of hallucinated dependencies, and risk assessment in agent-generated code.' },
   { title: 'Developer-Agent Collaboration and Interaction', description: 'Interface and interaction design for agentic development tools, cognitive load, trust calibration, and AI-augmented developer workflows.' },
   { title: 'Architectures for Agentic Software Systems', description: 'Composition strategies, tool use, planning, memory management, and multi-agent coordination patterns.' },
-  { title: 'Empirical Studies', description: 'Analysis of agent behavior from real-world deployments, including studies leveraging the AIDev dataset.' },
+  { title: 'Empirical Studies', description: 'Analysis of agent behavior from real-world deployments, including studies leveraging the <a href="https://huggingface.co/datasets/hao-li/AIDev" target="_blank" rel="noopener noreferrer">AIDev</a> dataset.' },
   { title: 'Benchmarking and Evaluation', description: 'Evaluating agents on repository-level and long-horizon tasks, including fault localization and regression testing.' },
   { title: 'Production Operations', description: 'Monitoring, debugging, and maintaining agentic AI systems (MLOps, LLMOps, AgentOps) in production environments.' },
 ]

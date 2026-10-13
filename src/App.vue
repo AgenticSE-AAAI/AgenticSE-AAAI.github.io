@@ -210,19 +210,20 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
           <h4 class="fw-bold mb-4 text-uppercase" style="letter-spacing: 0.05em;">Topics of Interest</h4>
           <ul class="mb-5" style="font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); list-style-type: disc; padding-left: 1.5rem;">
             <li v-for="t in topics" :key="t.title" class="mb-2">
-              <strong style="color: var(--primary);">{{ t.title }}:</strong> <span>{{ t.description }}</span>
+              <strong style="color: var(--primary);">{{ t.title }}:</strong> <span v-html="t.description"></span>
             </li>
           </ul>
 
           <h4 class="fw-bold mb-4 text-uppercase" style="letter-spacing: 0.05em;">Paper Submission</h4>
           <ul class="mb-4" style="font-size: 1.1rem; line-height: 1.8; color: var(--text-muted);">
-            <li><strong>Full papers:</strong> Up to 8 pages (excluding references) for original research contributions.</li>
-            <li><strong>Short papers:</strong> Up to 4 pages (excluding references) for position and vision papers, reports, and preliminary results.</li>
+            <li><strong>Long papers:</strong> Up to 8 pages (excluding references).</li>
+            <li><strong>Short papers:</strong> Up to 4 pages (excluding references).</li>
+            <li><strong>Position papers:</strong> Up to 4 pages (excluding references).</li>
             <li><strong>Format:</strong> Please use the template in the <a href="https://aaai.org/authorkit27/">AAAI-2027 Author Kit</a>.</li>
             <li><strong>Review:</strong> All submissions are double-blind. Please anonymize your submission.</li>
             <li><strong>Proceedings:</strong> The workshop is non-archival, with no formal proceedings. Accepted papers will be listed on this website.</li>
-            <li><strong>Registration:</strong> At least one author of each accepted paper must register for the AAAI-27 workshop.</li>
-            <!-- <li><strong>Presentation:</strong> Each accepted paper receives a lightning talk and a poster. At least one author must register and present in person.</li> -->
+            <li><strong>Dual submission:</strong> Work under review or destined for other venues is welcome.</li>
+            <li><strong>Presentation:</strong> At least one author must <a href="https://aaai.getregistered.net/aaai-conference-2027" target="_blank" rel="noopener noreferrer">register</a> and present in person (poster or oral).</li>
           </ul>
           <div class="mt-4">
             <a href="https://openreview.net/group?id=AAAI.org/2027/Workshop/AgenticSE" target="_blank" rel="noopener noreferrer" class="btn-register">

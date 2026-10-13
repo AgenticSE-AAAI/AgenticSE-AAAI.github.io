@@ -7,10 +7,15 @@
 - Workshop day: February 22 or 23, 2027; exact day to be announced
 - Paper submission deadline: November 20, 2026, 11:59 PM Anywhere on Earth (AoE)
 - Author notification: December 2, 2026
-- Full papers: up to 8 pages excluding references
+- Long papers: up to 8 pages excluding references
 - Short papers: up to 4 pages excluding references
+- Position papers: up to 4 pages excluding references
+- Dual submission: work under review or destined for other venues is welcome
+- Presentation: at least one author must register and present in person (poster or oral)
+- Registration: https://aaai.getregistered.net/aaai-conference-2027
 - Review: double-blind; AAAI-27 template; non-archival
 - Author kit: AAAI-2027 Author Kit — https://aaai.org/authorkit27/
+- AIDev dataset: https://huggingface.co/datasets/hao-li/AIDev
 - Submission portal: https://openreview.net/group?id=AAAI.org/2027/Workshop/AgenticSE
 - Contact: Hao Li, hao.li@queensu.ca
 
