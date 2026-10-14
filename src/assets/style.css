@@ -296,6 +296,26 @@ body {
   color: var(--text-main);
 }
 
+/* Reviewer Self-Nomination */
+.reviewer-intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.reviewer-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 100%;
+}
+
+@media (max-width: 575px) {
+  .reviewer-cta {
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+  }
+}
+
 /* Speakers */
 .speakers-list {
   display: flex;
