@@ -1,11 +1,11 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { topics, dates, organizers, programSchedule } from './workshop.js'
+import { topics, dates, organizers, programCommittee, programSchedule } from './workshop.js'
 
 const activeSection = ref('home')
 const navCollapsed = ref(true)
+const isScrolled = ref(false)
 const speakers = []
-const pc = []
 
 const sections = [
   { id: 'home', label: 'Home' },
@@ -14,16 +14,18 @@ const sections = [
   // { id: 'accepted-papers', label: 'Accepted Papers' },
   { id: 'submission', label: 'Call for Papers' },
   { id: 'dates', label: 'Dates' },
+  { id: 'reviewer', label: 'Reviewers' },
   { id: 'organizers', label: 'Committee' },
 ]
 
 function scrollTo(id) {
   navCollapsed.value = true
   const el = document.getElementById(id)
-  if (el) el.scrollIntoView({ behavior: 'smooth' })
+  if (el) el.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
 }
 
 function handleScroll() {
+  isScrolled.value = window.scrollY > 32
   const scrollY = window.scrollY + 100
   for (let i = sections.length - 1; i >= 0; i--) {
     const el = document.getElementById(sections[i].id)
@@ -34,16 +36,24 @@ function handleScroll() {
   }
 }
 
-onMounted(() => window.addEventListener('scroll', handleScroll))
+onMounted(() => {
+  handleScroll()
+  window.addEventListener('scroll', handleScroll, { passive: true })
+})
 onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 </script>
 
 <template>
+  <a href="#main-content" class="skip-link">Skip to content</a>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container-fluid px-4">
-      <a class="navbar-brand" href="#" @click.prevent="scrollTo('home')">
-        Agentic SE @ AAAI-27
+  <nav class="navbar navbar-expand-lg fixed-top" :class="{ 'navbar-solid': isScrolled || !navCollapsed }" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#home" @click.prevent="scrollTo('home')">
+        Agentic SE
+        <span class="brand-edition">
+          <img class="brand-logo" src="/images/aaai-logo-white.png" alt="" width="700" height="640">
+          AAAI-27
+        </span>
       </a>
       <button
         class="navbar-toggler border-0"
@@ -61,7 +71,8 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
             <a
               class="nav-link"
               :class="{ active: activeSection === s.id }"
-              href="#"
+              :href="'#' + s.id"
+              :aria-current="activeSection === s.id ? 'location' : undefined"
               @click.prevent="scrollTo(s.id)"
             >{{ s.label }}</a>
           </li>
@@ -70,33 +81,59 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
     </div>
   </nav>
 
-  <!-- Hero Text -->
-  <section id="home" class="hero-text-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-11">
-          <span class="hero-badge">AAAI-27 Workshop</span>
-          <h1 class="hero-title">
+  <main id="main-content">
+  <!-- Workshop introduction -->
+  <section id="home" class="hero-section" aria-labelledby="workshop-title">
+    <img
+      class="hero-background"
+      src="/images/montreal-old-port-dusk.jpg"
+      alt=""
+      width="2400"
+      height="1600"
+      fetchpriority="high"
+      decoding="async"
+    >
+    <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">AAAI-27 Workshop <span aria-hidden="true">/</span> Montréal, Canada</p>
+          <h1 id="workshop-title" class="hero-title">
             Agentic Software Engineering
           </h1>
-          <div class="hero-meta d-flex flex-wrap gap-4 mb-4">
-            <div><i class="bi bi-calendar-event"></i> February 22 or 23, 2027</div>
-            <div><i class="bi bi-geo-alt"></i> Montréal, Canada</div>
-            <div><i class="bi bi-clock"></i> Full-Day</div>
-            <div><i class="bi bi-building"></i> Exact workshop day and room to be announced</div>
-          </div>
-          <p class="mt-4" style="max-width: 800px; font-size: 1.15rem; line-height: 1.7;">
+          <p class="hero-description">
             Co-located with <a href="https://aaai.org/conference/aaai/aaai-27/" target="_blank" rel="noopener noreferrer"><strong>AAAI-27</strong></a>.
             Bridging artificial intelligence, software engineering, programming languages and formal methods, and research software engineering.
           </p>
-          <a href="https://openreview.net/group?id=AAAI.org/2027/Workshop/AgenticSE" target="_blank" rel="noopener noreferrer" class="btn-register">
-            Submit Paper (OpenReview) <i class="bi bi-arrow-right ms-2"></i>
-          </a>
+          <div class="hero-actions">
+            <a href="https://openreview.net/group?id=AAAI.org/2027/Workshop/AgenticSE" target="_blank" rel="noopener noreferrer" class="btn-register hero-primary">
+              Submit Paper (OpenReview)
+            </a>
+            <a href="#submission" class="hero-secondary" @click.prevent="scrollTo('submission')">
+              Call for Papers
+            </a>
+          </div>
         </div>
-      </div>
+    </div>
+    <div class="container hero-bottom">
+      <span><i class="bi bi-geo-alt" aria-hidden="true"></i> Old Port, Montréal</span>
     </div>
   </section>
 
+  <div class="workshop-facts" aria-label="Workshop at a glance">
+    <dl class="container facts-grid">
+      <div>
+        <dt>When</dt>
+        <dd>February 22 or 23, 2027 <small>Exact workshop day and room to be announced</small></dd>
+      </div>
+      <div>
+        <dt>Where</dt>
+        <dd>Montréal, Canada <small>Full-Day</small></dd>
+      </div>
+      <div>
+        <dt>Co-located with</dt>
+        <dd><a class="conference-brand" href="https://aaai.org/conference/aaai/aaai-27/" target="_blank" rel="noopener noreferrer"><img src="/images/aaai-logo-white.png" alt="AAAI" width="700" height="640"><span>AAAI-27</span></a></dd>
+      </div>
+    </dl>
+  </div>
 
   <!-- Program Schedule (hidden until ready to announce)
   <section id="program" class="section">
@@ -192,75 +229,70 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   -->
 
   <!-- Submission / CTA -->
-  <section id="submission" class="section section-alt">
+  <section id="submission" class="section cfp-section" aria-labelledby="cfp-title">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <h2 class="section-title">Call for<br>Papers</h2>
-        </div>
-        <div class="col-lg-8">
-          <hr class="section-divider d-lg-none">
-          <p class="mb-4" style="font-size: 1.1rem; line-height: 1.8;">
-            Software has emerged as the primary proving ground for agentic AI. Agentic coding systems such as Claude Code and OpenAI Codex are among the first truly autonomous agents deployed in complex, real-world environments. However, writing code is merely the entry point. Agents must also capture requirements and intent, reason over specifications and formal artifacts, validate and verify their outputs, and build, test, and maintain production and scientific software.
-          </p>
-          <p class="mb-5" style="font-size: 1.1rem; line-height: 1.8;">
-            The <strong>AAAI-27 Workshop on Agentic Software Engineering</strong> bridges the AI community with the software engineering, programming languages and formal methods, and research software engineering communities. We welcome original research, position and vision papers, reports, and preliminary results on the topics below.
-          </p>
+      <h2 id="cfp-title" class="section-title section-title-band">Call for Papers</h2>
+      <div class="cfp-intro">
+        <p>
+          Software has emerged as the primary proving ground for agentic AI. Agentic coding systems such as Claude Code and OpenAI Codex are among the first truly autonomous agents deployed in complex, real-world environments. However, writing code is merely the entry point. Agents must also capture requirements and intent, reason over specifications and formal artifacts, validate and verify their outputs, and build, test, and maintain production and scientific software.
+        </p>
+        <p>
+          The <strong>AAAI-27 Workshop on Agentic Software Engineering</strong> bridges the AI community with the software engineering, programming languages and formal methods, and research software engineering communities. We welcome original research, position and vision papers, reports, and preliminary results on the topics below.
+        </p>
+      </div>
 
-          <h4 class="fw-bold mb-4 text-uppercase" style="letter-spacing: 0.05em;">Topics of Interest</h4>
-          <ul class="mb-5" style="font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); list-style-type: disc; padding-left: 1.5rem;">
-            <li v-for="t in topics" :key="t.title" class="mb-2">
-              <strong style="color: var(--primary);">{{ t.title }}:</strong> <span v-html="t.description"></span>
-            </li>
-          </ul>
+      <h3 class="content-heading">Topics of Interest</h3>
+      <ul class="topics-grid">
+        <li v-for="t in topics" :key="t.title">
+          <h4>{{ t.title }}</h4>
+          <p v-html="t.description"></p>
+        </li>
+      </ul>
 
-          <h4 class="fw-bold mb-4 text-uppercase" style="letter-spacing: 0.05em;">Paper Submission</h4>
-          <ul class="mb-4" style="font-size: 1.1rem; line-height: 1.8; color: var(--text-muted);">
-            <li><strong>Long papers:</strong> Up to 8 pages (excluding references).</li>
-            <li><strong>Short papers:</strong> Up to 4 pages (excluding references).</li>
-            <li><strong>Position papers:</strong> Up to 4 pages (excluding references).</li>
-            <li><strong>Format:</strong> Please use the template in the <a href="https://aaai.org/authorkit27/">AAAI-2027 Author Kit</a>.</li>
-            <li><strong>Review:</strong> All submissions are double-blind. Please anonymize your submission.</li>
-            <li><strong>Proceedings:</strong> The workshop is non-archival, with no formal proceedings. Accepted papers will be listed on this website.</li>
-            <li><strong>Dual submission:</strong> Work under review or destined for other venues is welcome.</li>
-            <li><strong>Presentation:</strong> At least one author must <a href="https://aaai.getregistered.net/aaai-conference-2027" target="_blank" rel="noopener noreferrer">register</a> and present in person (poster or oral).</li>
-          </ul>
-          <div class="mt-4">
-            <a href="https://openreview.net/group?id=AAAI.org/2027/Workshop/AgenticSE" target="_blank" rel="noopener noreferrer" class="btn-register">
-              Submit Paper (OpenReview) <i class="bi bi-arrow-right ms-2"></i>
-            </a>
-          </div>
+      <div class="submission-details">
+        <h3 class="content-heading">Paper Submission</h3>
+        <ul class="submission-guidelines">
+          <li><strong>Long papers:</strong> Up to 8 pages (excluding references).</li>
+          <li><strong>Short papers:</strong> Up to 4 pages (excluding references).</li>
+          <li><strong>Position papers:</strong> Up to 4 pages (excluding references).</li>
+          <li><strong>Format:</strong> Please use the template in the <a href="https://aaai.org/authorkit27/">AAAI-2027 Author Kit</a>.</li>
+          <li><strong>Review:</strong> All submissions are double-blind. Please anonymize your submission.</li>
+          <li><strong>Proceedings:</strong> The workshop is non-archival, with no formal proceedings. Accepted papers will be listed on this website.</li>
+          <li><strong>Dual submission:</strong> Work under review or destined for other venues is welcome.</li>
+          <li><strong>Presentation:</strong> At least one author must <a href="https://aaai.getregistered.net/aaai-conference-2027" target="_blank" rel="noopener noreferrer">register</a> and present in person (poster or oral).</li>
+        </ul>
+        <div class="submission-action">
+          <a href="https://openreview.net/group?id=AAAI.org/2027/Workshop/AgenticSE" target="_blank" rel="noopener noreferrer" class="btn-register">
+            Submit Paper (OpenReview)
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Important Dates -->
-  <section id="dates" class="section section-alt">
+  <section id="dates" class="section section-alt dates-section" aria-labelledby="dates-title">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <h2 class="section-title">Important<br>Dates</h2>
-        </div>
-        <div class="col-lg-8">
-          <hr class="section-divider d-lg-none">
-          <div class="date-list">
-            <div class="date-item" v-for="d in dates" :key="d.event">
-              <span class="date-badge" v-html="d.date"></span>
-              <span class="date-event" v-html="d.event"></span>
-            </div>
-          </div>
-          <p class="text-muted mt-4" style="font-size: 0.95rem;">
-            <i class="bi bi-info-circle me-2"></i>
-            The submission deadline is 11:59 PM Anywhere on Earth (AoE).
-          </p>
-        </div>
+      <div class="dates-heading">
+        <h2 id="dates-title" class="section-title">Important Dates</h2>
+        <p class="dates-timezone">
+          <i class="bi bi-globe2" aria-hidden="true"></i>
+          The submission deadline is 11:59 PM Anywhere on Earth (AoE).
+        </p>
+      </div>
+      <div class="date-cards">
+        <article v-for="d in dates" :key="d.event" class="date-card" :class="{ 'date-card-featured': d.featured }">
+          <h3 class="date-card-label">{{ d.event }}</h3>
+          <p class="date-card-day">{{ d.day }}</p>
+          <p class="date-card-month">{{ d.monthYear }}</p>
+          <p class="date-card-note">{{ d.note }}</p>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- Reviewer Self-Nomination -->
-  <section id="reviewer" class="section section-alt" aria-labelledby="reviewer-title">
+  <section id="reviewer" class="section reviewer-section" aria-labelledby="reviewer-title">
     <div class="container">
       <div class="row">
         <div class="col-lg-4">
@@ -273,7 +305,6 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
           </p>
           <a href="https://docs.google.com/forms/d/e/1FAIpQLScoT6DMc6PO_T8BAdAx5aidZU4u7WcUF56XmCY2I4zYLLZdSw/viewform" target="_blank" rel="noopener noreferrer" class="btn-register reviewer-cta">
             <span>Self-Nominate as Reviewer</span>
-            <i class="bi bi-arrow-right" aria-hidden="true"></i>
           </a>
         </div>
       </div>
@@ -281,14 +312,14 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   </section>
 
   <!-- Organizers -->
-  <section id="organizers" class="section section-alt">
+  <section id="organizers" class="section">
     <div class="container">
       <div class="row mb-5">
         <div class="col-12">
-          <h2 class="section-title text-center">Organizing Committee</h2>
+          <h2 class="section-title section-title-band">Organizing Committee</h2>
         </div>
       </div>
-      <div class="row g-4 justify-content-center row-cols-1 row-cols-sm-2 row-cols-lg-5">
+      <div class="row g-4 justify-content-center row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xxl-5">
         <div class="col" v-for="o in organizers" :key="o.name">
           <component 
             :is="o.website ? 'a' : 'div'"
@@ -297,12 +328,14 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
             :style="[o.website ? { display: 'block', color: 'inherit' } : {}, { height: '100%' }]"
           >
             <div class="organizer-card h-100">
-              <img v-if="o.photo" class="avatar" :src="o.photo" :alt="o.name" :style="o.objectPosition ? { objectPosition: o.objectPosition } : {}">
+              <img v-if="o.photo" class="avatar" :src="o.photo" :alt="o.name" loading="lazy" :style="o.objectPosition ? { objectPosition: o.objectPosition } : {}">
               <div v-else class="avatar d-flex align-items-center justify-content-center bg-light text-muted" style="font-size: 3rem;">
                 <i class="bi bi-person-fill"></i>
               </div>
-              <h5 style="font-size: 1.05rem" class="mb-2">{{ o.name }}</h5>
-              <p class="affiliation">{{ o.affiliation }}</p>
+              <h5 class="mb-2">{{ o.name }}</h5>
+              <ul class="committee-affiliations">
+                <li v-for="affiliation in o.affiliations" :key="affiliation">{{ affiliation }}</li>
+              </ul>
             </div>
           </component>
         </div>
@@ -311,26 +344,33 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   </section>
 
   <!-- Program Committee -->
-  <section id="pc" class="section section-alt">
+  <section id="pc" class="section">
     <div class="container">
       <div class="row mb-5">
         <div class="col-12">
-          <h2 class="section-title text-center">Program Committee</h2>
+          <h2 class="section-title section-title-band">Program Committee</h2>
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <p v-if="!pc.length" class="text-center text-muted">The program committee will be announced.</p>
-          <ul class="pc-list">
-            <li v-for="p in pc" :key="p.name" class="pc-item">
-              <strong>{{ p.name }}</strong><span v-if="p.role" class="text-muted"> ({{ p.role }})</span>
-              <span class="text-muted"> — {{ p.affiliation }}</span>
+        <div class="col-12">
+          <p v-if="!programCommittee.length" class="text-center text-muted">The program committee will be announced.</p>
+          <ul v-else class="pc-list">
+            <li v-for="p in programCommittee" :key="p.name" class="pc-item">
+              <div class="pc-person">
+                <a v-if="p.website" :href="p.website" target="_blank" rel="noopener noreferrer" class="pc-name">{{ p.name }}</a>
+                <strong v-else class="pc-name">{{ p.name }}</strong>
+                <span v-if="p.role" class="pc-role">{{ p.role }}</span>
+              </div>
+              <ul class="committee-affiliations">
+                <li v-for="affiliation in p.affiliations" :key="affiliation">{{ affiliation }}</li>
+              </ul>
             </li>
           </ul>
         </div>
       </div>
     </div>
   </section>
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">

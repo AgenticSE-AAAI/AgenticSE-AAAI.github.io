@@ -53,8 +53,18 @@ The initial setup does not push commits or change repository settings.
 ## Original design reference
 
 `AgenticSE-CAIS.github.io` is a read-only local symlink. Do not modify its target.
-The site retains its original stylesheet, Inter font, Bootstrap layout, section
-order, and organizer cards. Neither reference symlink is committed or deployed.
+The site uses Inter and Bootstrap, with a full-width Montréal photo header,
+workshop facts, important date cards, and a responsive committee layout.
+Neither reference symlink is committed or deployed.
 Organizer photos are stored in `public/images/` and linked from `src/workshop.js`.
+The homepage background, `public/images/montreal-old-port-dusk.jpg`, is by
+[Cyprien Da Silva on Unsplash](https://unsplash.com/photos/city-skyline-reflected-in-water-at-sunset-1kr0THXn8cA),
+used under the [Unsplash license](https://unsplash.com/license). Attribution is optional.
+The white AAAI logo, `public/images/aaai-logo-white.png`, is the official mark
+used on the [AAAI-27 conference website](https://aaai.org/conference/aaai/aaai-27/).
+It links to that conference under “Co-located with”; it is not a workshop logo.
+The alternative photo, `public/images/montreal-old-port.jpg`, is by Joseph Walker
+on [Pexels](https://www.pexels.com/photo/birds-eye-view-of-clock-tower-near-river-in-montreal-in-canada-23832663/),
+used under the [Pexels license](https://www.pexels.com/license/). Attribution is optional.
 The program schedule, keynote speakers, and accepted papers sections and their
 navigation entries are commented out in `src/App.vue` until ready to announce.
