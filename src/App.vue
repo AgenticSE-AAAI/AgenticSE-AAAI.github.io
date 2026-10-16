@@ -46,7 +46,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 <template>
   <a href="#main-content" class="skip-link">Skip to content</a>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top" :class="{ 'navbar-solid': isScrolled || !navCollapsed }" aria-label="Main navigation">
+  <nav class="navbar navbar-expand-lg fixed-top" :class="{ 'navbar-solid': isScrolled || !navCollapsed, 'navbar-scrolled': isScrolled }" aria-label="Main navigation">
     <div class="container">
       <a class="navbar-brand" href="#home" @click.prevent="scrollTo('home')">
         Agentic SE
@@ -107,7 +107,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
             <a href="https://openreview.net/group?id=AAAI.org/2027/Workshop/AgenticSE" target="_blank" rel="noopener noreferrer" class="btn-register hero-primary">
               Submit Paper (OpenReview)
             </a>
-            <a href="#submission" class="hero-secondary" @click.prevent="scrollTo('submission')">
+            <a href="#submission" class="btn-register hero-secondary" @click.prevent="scrollTo('submission')">
               Call for Papers
             </a>
           </div>
@@ -229,9 +229,15 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   -->
 
   <!-- Submission / CTA -->
-  <section id="submission" class="section cfp-section" aria-labelledby="cfp-title">
+  <section id="submission" class="section section-with-heading cfp-section" aria-labelledby="cfp-title">
+    <header class="section-heading">
+      <div class="container">
+        <div class="section-heading-content">
+          <h2 id="cfp-title" class="section-title">Call for Papers</h2>
+        </div>
+      </div>
+    </header>
     <div class="container">
-      <h2 id="cfp-title" class="section-title section-title-band">Call for Papers</h2>
       <div class="cfp-intro">
         <p>
           Software has emerged as the primary proving ground for agentic AI. Agentic coding systems such as Claude Code and OpenAI Codex are among the first truly autonomous agents deployed in complex, real-world environments. However, writing code is merely the entry point. Agents must also capture requirements and intent, reason over specifications and formal artifacts, validate and verify their outputs, and build, test, and maintain production and scientific software.
@@ -271,15 +277,19 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   </section>
 
   <!-- Important Dates -->
-  <section id="dates" class="section section-alt dates-section" aria-labelledby="dates-title">
-    <div class="container">
-      <div class="dates-heading">
-        <h2 id="dates-title" class="section-title">Important Dates</h2>
-        <p class="dates-timezone">
-          <i class="bi bi-globe2" aria-hidden="true"></i>
-          The submission deadline is 11:59 PM Anywhere on Earth (AoE).
-        </p>
+  <section id="dates" class="section section-with-heading section-alt dates-section" aria-labelledby="dates-title">
+    <header class="section-heading">
+      <div class="container">
+        <div class="section-heading-content dates-heading">
+          <h2 id="dates-title" class="section-title">Important Dates</h2>
+          <p class="dates-timezone">
+            <i class="bi bi-globe2" aria-hidden="true"></i>
+            The submission deadline is 11:59 PM Anywhere on Earth (AoE).
+          </p>
+        </div>
       </div>
+    </header>
+    <div class="container">
       <div class="date-cards">
         <article v-for="d in dates" :key="d.event" class="date-card" :class="{ 'date-card-featured': d.featured }">
           <h3 class="date-card-label">{{ d.event }}</h3>
@@ -292,33 +302,34 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   </section>
 
   <!-- Reviewer Self-Nomination -->
-  <section id="reviewer" class="section reviewer-section" aria-labelledby="reviewer-title">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
+  <section id="reviewer" class="section section-with-heading reviewer-section" aria-labelledby="reviewer-title">
+    <header class="section-heading">
+      <div class="container">
+        <div class="section-heading-content">
           <h2 id="reviewer-title" class="section-title">Call for Reviewers</h2>
         </div>
-        <div class="col-lg-8">
-          <hr class="section-divider d-lg-none">
-          <p class="reviewer-intro mb-0">
-            We are looking for qualified reviewers with expertise in AI agents, software engineering, and related areas. If you are interested in serving as a reviewer for the <strong>AgenticSE @ AAAI-27</strong> workshop, please fill out the self-nomination form below.
-          </p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLScoT6DMc6PO_T8BAdAx5aidZU4u7WcUF56XmCY2I4zYLLZdSw/viewform" target="_blank" rel="noopener noreferrer" class="btn-register reviewer-cta">
-            <span>Self-Nominate as Reviewer</span>
-          </a>
-        </div>
       </div>
+    </header>
+    <div class="container">
+      <p class="reviewer-intro mb-0">
+        We are looking for qualified reviewers with expertise in AI agents, software engineering, and related areas. If you are interested in serving as a reviewer for the <strong>AgenticSE @ AAAI-27</strong> workshop, please fill out the self-nomination form below.
+      </p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScoT6DMc6PO_T8BAdAx5aidZU4u7WcUF56XmCY2I4zYLLZdSw/viewform" target="_blank" rel="noopener noreferrer" class="btn-register reviewer-cta">
+        <span>Self-Nominate as Reviewer</span>
+      </a>
     </div>
   </section>
 
   <!-- Organizers -->
-  <section id="organizers" class="section">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-12">
-          <h2 class="section-title section-title-band">Organizing Committee</h2>
+  <section id="organizers" class="section section-with-heading">
+    <header class="section-heading">
+      <div class="container">
+        <div class="section-heading-content">
+          <h2 class="section-title">Organizing Committee</h2>
         </div>
       </div>
+    </header>
+    <div class="container">
       <div class="row g-4 justify-content-center row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xxl-5">
         <div class="col" v-for="o in organizers" :key="o.name">
           <component 
@@ -344,13 +355,15 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
   </section>
 
   <!-- Program Committee -->
-  <section id="pc" class="section">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-12">
-          <h2 class="section-title section-title-band">Program Committee</h2>
+  <section id="pc" class="section section-with-heading">
+    <header class="section-heading">
+      <div class="container">
+        <div class="section-heading-content">
+          <h2 class="section-title">Program Committee</h2>
         </div>
       </div>
+    </header>
+    <div class="container">
       <div class="row justify-content-center">
         <div class="col-12">
           <p v-if="!programCommittee.length" class="text-center text-muted">The program committee will be announced.</p>
