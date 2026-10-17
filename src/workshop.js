@@ -12,17 +12,26 @@ export const topics = [
 ]
 
 export const dates = [
-  { event: 'Paper submission deadline', date: 'November 20, 2026' },
-  { event: 'Author notification', date: 'December 2, 2026' },
-  { event: 'Workshop day', date: 'February 22 or 23, 2027 (TBA)' },
+  { event: 'Paper submission deadline', date: 'November 20, 2026', day: '20', monthYear: 'November 2026', note: '11:59 PM · Anywhere on Earth', featured: true },
+  { event: 'Author notification', date: 'December 2, 2026', day: '02', monthYear: 'December 2026', note: 'Acceptance decisions announced' },
+  { event: 'Workshop day', date: 'February 22 or 23, 2027 (TBA)', day: '22 or 23', monthYear: 'February 2027', note: 'Exact day to be announced' },
 ]
 
 export const organizers = [
-  { name: 'Hao Li', website: 'https://leo-lihao.github.io', photo: '/images/haoli.jpg', affiliation: "Queen’s University", email: 'hao.li@queensu.ca', role: 'Workshop Chair · Main Contact' },
-  { name: 'Tse-Hsun (Peter) Chen', website: 'https://petertsehsun.github.io/', photo: '/images/peter_chen.jpg', affiliation: 'Concordia University', email: 'peterc@encs.concordia.ca' },
-  { name: 'Shraddha Barke', website: 'https://www.microsoft.com/en-us/research/people/sbarke/', photo: '/images/shraddha_barke.png', affiliation: 'Microsoft Research', email: 'sbarke@microsoft.com' },
-  { name: 'Vani Mandava', website: 'https://escience.washington.edu/member/vani-mandava/', photo: '/images/vani_mandava.png', affiliation: 'University of Washington', email: 'vani1@uw.edu' },
-  { name: 'Ahmed E. Hassan', website: 'https://research.cs.queensu.ca/home/ahmed/home/', photo: '/images/ahmedhassan.jpg', affiliation: "Queen’s University", email: 'ahmed@cs.queensu.ca' },
+  { name: 'Hao Li', website: 'https://leo-lihao.github.io', photo: '/images/haoli.jpg', affiliations: ["Queen’s University"], email: 'hao.li@queensu.ca', role: 'Workshop Chair · Main Contact' },
+  { name: 'Tse-Hsun (Peter) Chen', website: 'https://petertsehsun.github.io/', photo: '/images/peter_chen.jpg', affiliations: ['Mila, Quebec AI Institute', 'Concordia University'], email: 'peterc@encs.concordia.ca' },
+  { name: 'Shraddha Barke', website: 'https://www.microsoft.com/en-us/research/people/sbarke/', photo: '/images/shraddha_barke.png', affiliations: ['Microsoft Research'], email: 'sbarke@microsoft.com' },
+  { name: 'Vani Mandava', website: 'https://escience.washington.edu/member/vani-mandava/', photo: '/images/vani_mandava.png', affiliations: ['University of Washington'], email: 'vani1@uw.edu' },
+  { name: 'Ahmed E. Hassan', website: 'https://research.cs.queensu.ca/home/ahmed/home/', photo: '/images/ahmedhassan.jpg', affiliations: ["Queen’s University"], email: 'ahmed@cs.queensu.ca' },
+]
+
+export const programCommittee = [
+  {
+    name: 'Linqiang (Jackson) Guo',
+    website: 'https://pockyitachi.github.io/linqiang-guo/',
+    role: 'Web Chair',
+    affiliations: ['Mila, Quebec AI Institute', 'Concordia University'],
+  },
 ]
 
 // Tentative schedule from the accepted AAAI proposal.
