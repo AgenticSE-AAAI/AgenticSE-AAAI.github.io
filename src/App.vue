@@ -258,9 +258,10 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
       <div class="submission-details">
         <h3 class="content-heading">Paper Submission</h3>
         <ul class="submission-guidelines">
-          <li><strong>Long papers:</strong> Up to 8 pages (excluding references).</li>
-          <li><strong>Short papers:</strong> Up to 4 pages (excluding references).</li>
-          <li><strong>Position papers:</strong> Up to 4 pages (excluding references).</li>
+          <li><strong>Long papers:</strong> Up to 8 pages (excluding references and appendices).</li>
+          <li><strong>Short papers:</strong> Up to 4 pages (excluding references and appendices).</li>
+          <li><strong>Position papers:</strong> Up to 4 pages (excluding references and appendices).</li>
+          <li><strong>Appendices:</strong> Appendices do not count toward the page limit. Reviewers are not required to read them.</li>
           <li><strong>Format:</strong> Please use the template in the <a href="https://aaai.org/authorkit27/">AAAI-2027 Author Kit</a>.</li>
           <li><strong>Review:</strong> All submissions are double-blind. Please anonymize your submission.</li>
           <li><strong>Proceedings:</strong> The workshop is non-archival, with no formal proceedings. Accepted papers will be listed on this website.</li>
@@ -312,11 +313,8 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
     </header>
     <div class="container">
       <p class="reviewer-intro mb-0">
-        We are looking for qualified reviewers with expertise in AI agents, software engineering, and related areas. If you are interested in serving as a reviewer for the <strong>AgenticSE @ AAAI-27</strong> workshop, please fill out the self-nomination form below.
+        We have received a large number of reviewer self-nominations for the <strong>AgenticSE @ AAAI-27</strong> workshop. Thank you to everyone who applied! <strong>Reviewer self-nominations are now closed.</strong>
       </p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScoT6DMc6PO_T8BAdAx5aidZU4u7WcUF56XmCY2I4zYLLZdSw/viewform" target="_blank" rel="noopener noreferrer" class="btn-register reviewer-cta">
-        <span>Self-Nominate as Reviewer</span>
-      </a>
     </div>
   </section>
 
